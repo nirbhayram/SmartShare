@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SmartShare</string>
+    <string-array name="type">
+        <item>Student</item>
+        <item>Course Instructor</item>
+        <item>Book Stores</item>
+        <item>Clubs</item>
+    </string-array>
+    <string-array name="course_array">
+        <item>Software Enginnering</item>
+        <item>System Software</item>
+        <item>Differential Equation</item>
+        <item>Cryptography</item>
+        <item>Probability</item>
+        <item>Internet of things</item>
+    </string-array>
+    <string-array name="category_array">
+        <item>Book</item>
+        <item>Article</item>
+        <item>Question Paper</item>
+        <item>Lecture Notes</item>
+    </string-array>
+</resources>
