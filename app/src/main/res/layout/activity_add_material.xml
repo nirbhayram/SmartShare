@@ -8,54 +8,61 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_gravity="center"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_gravity="center"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/materialname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:hint="Material name"
                 android:inputType="textPersonName"
-                android:layout_margin="5dp"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
             <EditText
+                android:id="@+id/discription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:hint="Discription"
                 android:inputType="textMultiLine"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <EditText
-                android:layout_margin="5dp"
+                android:id="@+id/amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:hint="Amount in rupees"
                 android:inputType="number"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <Spinner
-                android:layout_marginLeft="19dp"
-                android:layout_marginRight="19dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 android:id="@+id/coursespinner"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-            <Spinner
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="19dp"
                 android:layout_marginRight="19dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp" />
+
+            <Spinner
                 android:id="@+id/categoryspinner"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:layout_marginTop="20dp" />
+
             <EditText
                 android:id="@+id/writtenby"
                 android:layout_width="match_parent"
@@ -63,7 +70,8 @@
                 android:layout_margin="5dp"
                 android:hint="Written by"
                 android:inputType="textMultiLine"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <EditText
                 android:id="@+id/isbn"
                 android:layout_width="match_parent"
@@ -71,7 +79,8 @@
                 android:layout_margin="5dp"
                 android:hint="ISBN"
                 android:inputType="textMultiLine"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <EditText
                 android:id="@+id/articleno"
                 android:layout_width="match_parent"
@@ -79,7 +88,8 @@
                 android:layout_margin="5dp"
                 android:hint="Article no"
                 android:inputType="textMultiLine"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <EditText
                 android:id="@+id/paperid"
                 android:layout_width="match_parent"
@@ -87,7 +97,8 @@
                 android:layout_margin="5dp"
                 android:hint="Paper ID"
                 android:inputType="textMultiLine"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <EditText
                 android:id="@+id/year"
                 android:layout_width="match_parent"
@@ -95,12 +106,13 @@
                 android:layout_margin="5dp"
                 android:hint="Year"
                 android:inputType="textMultiLine"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
+
             <Button
-                android:id="@+id/next"
+                android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="submit"/>
+                android:text="submit" />
         </LinearLayout>
 
     </ScrollView>
