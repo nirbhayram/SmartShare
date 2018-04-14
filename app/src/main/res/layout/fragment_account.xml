@@ -2,22 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:layout_margin="10dp"
+    android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/account"/>
+        android:src="@drawable/account" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
@@ -36,6 +36,13 @@
             android:padding="5dp"
             android:text="Introduction to algorithm" />
 
+        <ImageView
+            android:id="@+id/ed_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/edit" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
@@ -62,6 +69,13 @@
             android:padding="5dp"
             android:text="Introduction to algorithm" />
 
+        <ImageView
+            android:id="@+id/ed_mobileno"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/edit" />
     </LinearLayout>
 
     <LinearLayout
@@ -69,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
@@ -88,6 +102,12 @@
             android:padding="5dp"
             android:text="Introduction to algorithm" />
 
+        <ImageView
+            android:id="@+id/ed_email"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -95,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
@@ -114,6 +134,13 @@
             android:padding="5dp"
             android:text="Introduction to algorithm" />
 
+        <ImageView
+            android:id="@+id/ed_address"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/edit" />
     </LinearLayout>
 
     <LinearLayout
@@ -122,7 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
@@ -141,6 +168,13 @@
             android:padding="5dp"
             android:text="Introduction to algorithm" />
 
+        <ImageView
+            android:id="@+id/ed_studentid"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/edit" />
     </LinearLayout>
 
 
@@ -150,7 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
@@ -169,14 +203,22 @@
             android:padding="5dp"
             android:text="Introduction to algorithm" />
 
+        <ImageView
+            android:id="@+id/ed_instructorid"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/edit" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/collegeid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
@@ -195,6 +237,12 @@
             android:padding="5dp"
             android:text="Introduction to algorithm" />
 
+        <ImageView
+            android:id="@+id/ed_collegeid"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp" />
     </LinearLayout>
 
 
