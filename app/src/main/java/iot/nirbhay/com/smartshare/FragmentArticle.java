@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
  */
 
 public class FragmentArticle extends Fragment {
-
+    ArrayList<Article> arrayList;
     ListView listView;
     ProgressDialog progressDialog;
     @Nullable
@@ -33,12 +34,33 @@ public class FragmentArticle extends Fragment {
 
         progressDialog =new ProgressDialog(getActivity());
         listView = (ListView)thisView.findViewById(R.id.listview);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Article temp = arrayList.get(i);
+                Data.reset();
+                Data.setCourse(temp.getCourse());
+                Data.setMaterialname(temp.getTitle());
+                Data.setDiscription(temp.getDiscription());
+                Data.setAmount(temp.getPrice());
+                Data.setCategory("Article");
+                Data.setWrittenby(temp.getWrittenby());
+                Data.setArticleno(temp.getArtticleno());
+                Data.setOwnerid(temp.getOwnerid());
+                ShowDialougFragment dialougFragmentConfirm = new ShowDialougFragment();
+                dialougFragmentConfirm.show(getActivity().getFragmentManager(),"confirm");
+            }
+        });
+
         list();
         return thisView;
     }
 
 
     public void changeAdapter(ArrayList<Article> list){
+        arrayList = list;
+        listView.setAdapter(null);
         ArticleAdapter bookAdapter = new ArticleAdapter(getActivity(),list);
         listView.setAdapter(bookAdapter);
     }
@@ -64,7 +86,8 @@ public class FragmentArticle extends Fragment {
                                 snapshot.child("WRITTENBY").getValue().toString(),
                                 snapshot.child("AMOUNT").getValue().toString(),
                                 snapshot.child("DISCRIPTION").getValue().toString(),
-                                snapshot.child("OWNERID").getValue().toString()
+                                snapshot.child("OWNERID").getValue().toString(),
+                                snapshot.child("ARTICLENO").getValue().toString()
                         ));
                     }
                     catch (Exception e){
@@ -97,6 +120,12 @@ public class FragmentArticle extends Fragment {
                 onGetDataListener.onFailed(databaseError);
             }
         });
+    }
+    @Override
+    public void onResume() {
+        listView.setAdapter(null);
+        list();
+        super.onResume();
     }
 
 }

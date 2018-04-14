@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,9 +23,10 @@ import java.util.ArrayList;
  */
 
 public class FragmentBook extends Fragment {
-
+    ArrayList<Book> arrayList;
     ListView listView;
     ProgressDialog progressDialog;
+    BookAdapter bookAdapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -35,11 +37,31 @@ public class FragmentBook extends Fragment {
 
         list();
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Book temp = arrayList.get(i);
+                Data.reset();
+                Data.setCourse(temp.getCourse());
+                Data.setMaterialname(temp.getTitle());
+                Data.setDiscription(temp.getDiscription());
+                Data.setAmount(temp.getPrice());
+                Data.setCategory("Book");
+                Data.setWrittenby(temp.getWrittenby());
+                Data.setIsbn(temp.getIsbn());
+                Data.setOwnerid(temp.getOwnerid());
+                ShowDialougFragment dialougFragmentConfirm = new ShowDialougFragment();
+                dialougFragmentConfirm.show(getActivity().getFragmentManager(),"confirm");
+            }
+        });
+
         return thisView;
     }
 
     public void changeAdapter(ArrayList<Book> list){
-        BookAdapter bookAdapter = new BookAdapter(getActivity(),list);
+        arrayList = list;
+        listView.setAdapter(null);
+        bookAdapter = new BookAdapter(getActivity(),list);
         listView.setAdapter(bookAdapter);
     }
 
@@ -99,5 +121,10 @@ public class FragmentBook extends Fragment {
             }
         });
     }
-
+    @Override
+    public void onResume() {
+        listView.setAdapter(null);
+        list();
+        super.onResume();
+    }
 }

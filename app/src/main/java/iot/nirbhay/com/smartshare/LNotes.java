@@ -6,14 +6,23 @@ package iot.nirbhay.com.smartshare;
 
 public class LNotes {
 
-    String name,course,writtenby,amount,discription;
+    String name,course,writtenby,amount,discription,ownerid;
 
-    public LNotes(String name, String course, String writtenby, String amount, String discription) {
+    public LNotes(String name, String course, String writtenby, String amount, String discription,String ownerid) {
         this.name = name;
         this.course = course;
         this.writtenby = writtenby;
         this.amount = amount;
         this.discription = discription;
+        this.ownerid = ownerid;
+    }
+
+    public String getOwnerid() {
+        return ownerid;
+    }
+
+    public void setOwnerid(String ownerid) {
+        this.ownerid = ownerid;
     }
 
     public String getName() {

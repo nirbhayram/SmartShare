@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
  */
 
 public class FragmentLNotes extends Fragment{
+    ArrayList<LNotes> arrayList;
     ListView listView;
     ProgressDialog progressDialog;
     @Nullable
@@ -34,10 +36,28 @@ public class FragmentLNotes extends Fragment{
         listView = (ListView)thisView.findViewById(R.id.listview);
 
         list();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                LNotes temp = arrayList.get(i);
+                Data.reset();
+                Data.setCourse(temp.getCourse());
+                Data.setMaterialname(temp.getName());
+                Data.setDiscription(temp.getDiscription());
+                Data.setAmount(temp.getAmount());
+                Data.setCategory("Lecture Notes");
+                Data.setWrittenby(temp.getWrittenby());
+                Data.setOwnerid(temp.getOwnerid());
+                ShowDialougFragment dialougFragmentConfirm = new ShowDialougFragment();
+                dialougFragmentConfirm.show(getActivity().getFragmentManager(),"confirm");
+            }
+        });
         return thisView;
     }
 
     public void changeAdapter(ArrayList<LNotes> list){
+        arrayList = list;
+        listView.setAdapter(null);
         LNotesAdapter bookAdapter = new LNotesAdapter(getActivity(),list);
         listView.setAdapter(bookAdapter);
     }
@@ -62,7 +82,8 @@ public class FragmentLNotes extends Fragment{
                                 snapshot.child("COURSE").getValue().toString(),
                                 snapshot.child("WRITTENBY").getValue().toString(),
                                 snapshot.child("AMOUNT").getValue().toString(),
-                                snapshot.child("DISCRIPTION").getValue().toString()
+                                snapshot.child("DISCRIPTION").getValue().toString(),
+                                snapshot.child("OWNERID").getValue().toString()
                         ));
                     }
                     catch (Exception e){
@@ -97,4 +118,10 @@ public class FragmentLNotes extends Fragment{
         });
     }
 
+    @Override
+    public void onResume() {
+        listView.setAdapter(null);
+        list();
+        super.onResume();
+    }
 }

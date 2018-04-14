@@ -8,5 +8,9 @@
         android:icon="@drawable/add"
         android:title="Refresh"
         app:showAsAction="always" />
-
+    <item
+        android:id="@+id/account"
+        android:orderInCategory="100"
+        android:title="Account"
+        app:showAsAction="" />
 </menu>

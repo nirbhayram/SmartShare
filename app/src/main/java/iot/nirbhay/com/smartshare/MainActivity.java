@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FragmentArticle fragmentArticle;
     FragmentQPaper fragmentQPaper;
     FragmentLNotes fragmentLNotes;
+    FragmentAccount fragmentAccount;
     LinearLayout book,article,lnotes,qpaper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +113,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.addcar:
                 startActivity(new Intent(MainActivity.this,AddMaterial.class));
                 //this.finish();
+                break;
+            case R.id.account:
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                fragmentAccount = new FragmentAccount();
+                transaction.replace(R.id.container,fragmentAccount);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                lnotes.setBackgroundColor(getResources().getColor(R.color.white));
+                article.setBackgroundColor(getResources().getColor(R.color.white));
+                book.setBackgroundColor(getResources().getColor(R.color.white));
+                qpaper.setBackgroundColor(getResources().getColor(R.color.white));
                 break;
             default:
                 break;

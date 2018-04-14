@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -74,12 +75,14 @@ public class AddMaterial extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog.setMessage("Loading");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-                addMaterial();
-                progressDialog.dismiss();
-                onBackPressed();
+                if (checkVaild()) {
+                    progressDialog.setMessage("Loading");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+                    addMaterial();
+                    progressDialog.dismiss();
+                    onBackPressed();
+                }
             }
         });
 
@@ -169,6 +172,57 @@ public class AddMaterial extends AppCompatActivity {
         else if (course==5){
             myRef.child("COURSE").setValue("Internet of things");
         }
+    }
+
+    public boolean checkVaild(){
+        if (materialname.getText().toString().equals("")){
+            Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (discription.getText().toString().equals("")){
+            Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (amount.getText().toString().equals("")){
+            Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (to==0){
+            if (writtenby.getText().toString().equals("")){
+                Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            if (isbn.getText().toString().equals("")){
+                Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }else if (to==1){
+            if (writtenby.getText().toString().equals("")){
+                Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            if (articleno.getText().toString().equals("")){
+                Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        else if (to==2){
+            if (paperid.getText().toString().equals("")){
+                Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            if (year.getText().toString().equals("")){
+                Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        else if (to==3){
+            if (writtenby.getText().toString().equals("")){
+                Toast.makeText(AddMaterial.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
     }
 
 }

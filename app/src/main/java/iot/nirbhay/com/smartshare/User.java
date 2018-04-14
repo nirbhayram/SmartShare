@@ -6,7 +6,18 @@ package iot.nirbhay.com.smartshare;
 
 public class User {
 
-    static String address,collegeid,email,mobileno,name,password,studentid,instructoeid;
+    static String address="",collegeid="",email="",mobileno="",name="",password="",studentid="",instructoeid="";
+
+    public static void reset(){
+        address="";
+        collegeid="";
+        email="";
+        mobileno="";
+        name="";
+        password="";
+        studentid="";
+        instructoeid="";
+    }
 
     public static String getAddress() {
         return address;
@@ -70,5 +81,15 @@ public class User {
 
     public static void setInstructoeid(String instructoeid) {
         User.instructoeid = instructoeid;
+    }
+
+    public static int checkUser(){
+        if (!studentid.equals(""))
+            return 0;
+        if (!instructoeid.equals(""))
+            return 1;
+        if (!collegeid.equals(""))
+            return 3;
+        return 2;
     }
 }

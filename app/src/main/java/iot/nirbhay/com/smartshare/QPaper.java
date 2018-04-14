@@ -6,15 +6,24 @@ package iot.nirbhay.com.smartshare;
 
 public class QPaper {
 
-    String name,course,paperid,price,discription,year;
+    String name,course,paperid,price,discription,year,ownerid;
 
-    public QPaper(String name, String course, String paperid, String price, String discription, String year) {
+    public QPaper(String name, String course, String paperid, String price, String discription, String year,String ownerid) {
         this.name = name;
         this.course = course;
         this.paperid = paperid;
         this.price = price;
         this.discription = discription;
         this.year = year;
+        this.ownerid = ownerid;
+    }
+
+    public String getOwnerid() {
+        return ownerid;
+    }
+
+    public void setOwnerid(String ownerid) {
+        this.ownerid = ownerid;
     }
 
     public String getName() {

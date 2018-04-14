@@ -5,15 +5,24 @@ package iot.nirbhay.com.smartshare;
  */
 
 public class Article {
-    String title,course,writtenby,price,discription,ownerid;
+    String title,course,writtenby,price,discription,ownerid,artticleno;
 
-    public Article(String title, String course, String writtenby, String price, String discription, String ownerid) {
+    public Article(String title, String course, String writtenby, String price, String discription, String ownerid,String artticleno) {
         this.title = title;
         this.course = course;
         this.writtenby = writtenby;
         this.price = price;
         this.discription = discription;
         this.ownerid = ownerid;
+        this.artticleno = artticleno;
+    }
+
+    public String getArtticleno() {
+        return artticleno;
+    }
+
+    public void setArtticleno(String artticleno) {
+        this.artticleno = artticleno;
     }
 
     public String getTitle() {

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Material name"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_materialname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Discription"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_discription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Amount"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Course"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_course"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Category"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:id="@+id/writtenby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Written by"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_writtenby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:id="@+id/isbn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="ISBN"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_isbn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:id="@+id/articleno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Article no"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_articleno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:id="@+id/paperid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="PaperID"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_paperid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:id="@+id/year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Year"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:id="@+id/ownerid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="OwnerID"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tx_ownerid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:padding="5dp"
+            android:text="Introduction to algorithm"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order"/>
+</LinearLayout>

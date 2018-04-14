@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Register extends AppCompatActivity {
     int to = 0;
     Button submit;
@@ -27,6 +29,7 @@ public class Register extends AppCompatActivity {
     ProgressDialog progressDialog;
     TextInputEditText studentid,instructorid,collegeid;
     TextInputEditText name, mobileno,email,password,repassword,address;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 //startActivity(new Intent(Register.this,MainActivity.class));
                 //finishAffinity();
-                registerUser();
+                checkValid();
             }
         });
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -125,7 +128,7 @@ public class Register extends AppCompatActivity {
             public void onSuccess(DataSnapshot data) {
                 if (data.getValue()==null){
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("USER").child(email.getText().toString());
+                    DatabaseReference myRef = database.getReference("USER").child(trim(email.getText().toString()));
                     myRef.child("NAME").setValue(name.getText().toString());
                     myRef.child("MOBILENO").setValue(mobileno.getText().toString());
                     myRef.child("EMAIL").setValue(email.getText().toString());
@@ -188,4 +191,117 @@ public class Register extends AppCompatActivity {
         key = key.replaceAll("\\."," ");
         return key;
     }
+
+    public boolean  checkValid(){
+        if (name.getText().toString().equals("")){
+            Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (mobileno.getText().toString().equals("")){
+            Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (email.getText().toString().equals("")){
+            Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (address.getText().toString().equals("")){
+            Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (password.getText().toString().equals("")){
+            Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (repassword.getText().toString().equals("")){
+            Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!password.getText().toString().equals(repassword.getText().toString())){
+            Toast.makeText(Register.this,"Password does not match",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (to==0){
+            if (studentid.getText().toString().equals("")){
+                Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            if (collegeid.getText().toString().equals("")){
+                Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            getList(collegeid.getText().toString());
+        }
+        else if (to==1) {
+            if (instructorid.getText().toString().equals("")) {
+                Toast.makeText(Register.this, "Please fill all entry", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            if (collegeid.getText().toString().equals("")) {
+                Toast.makeText(Register.this, "Please fill all entry", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            getList(collegeid.getText().toString());
+        }
+        else if (to==3){
+            if (collegeid.getText().toString().equals("")){
+                Toast.makeText(Register.this,"Please fill all entry",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            getList(collegeid.getText().toString());
+        }
+        else{
+            registerUser();
+        }
+        return true;
+    }
+
+    public void getList(final String id){
+        final ArrayList<String> list = new ArrayList<String>();
+        getCollege(new OnGetDataListener() {
+            @Override
+            public void onStart() {
+                progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+            }
+
+            @Override
+            public void onSuccess(DataSnapshot data) {
+                for (DataSnapshot snapshot:data.getChildren()){
+                    if (snapshot.getKey().toString().equals(id)) {
+                        registerUser();
+                        progressDialog.dismiss();
+                        return;
+                    }
+                }
+                Toast.makeText(Register.this,"College ID does not match",Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onFailed(DatabaseError databaseError) {
+
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+    public void getCollege(final OnGetDataListener onGetDataListener){
+        onGetDataListener.onStart();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("COLLEGE");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                onGetDataListener.onSuccess(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                onGetDataListener.onFailed(databaseError);
+            }
+        });
+    }
+
 }
